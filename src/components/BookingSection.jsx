@@ -397,30 +397,32 @@ export default function BookingSection({ settings, onOpenTrackModal }) {
                   <MapPin className="w-4 h-4" />
                   {t('booking.pickupLabel')}
                 </label>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <input
                     type="text"
                     value={pickup}
                     onChange={(e) => setPickup(e.target.value)}
                     placeholder={t('booking.pickupPlaceholder')}
-                    className="flex-1 bg-[#131313]/50 border border-white/20 rounded-xl px-4 py-3 text-[#e5e2e1] focus:outline-none focus:border-[#f4bd70] transition-colors"
+                    className="flex-1 w-full sm:w-auto bg-[#131313]/50 border border-white/20 rounded-xl px-4 py-3 text-[#e5e2e1] focus:outline-none focus:border-[#f4bd70] transition-colors"
                   />
-                  <button
-                    type="button"
-                    onClick={handleGetLocation}
-                    disabled={gpsLoading}
-                    className="bg-[#1c1b1b] border border-[#f4bd70]/40 text-[#f4bd70] hover:bg-[#f4bd70]/20 px-3 py-3 rounded-xl flex items-center gap-1.5 font-bold transition-all whitespace-nowrap text-sm disabled:opacity-50"
-                  >
-                    {gpsLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Navigation className="w-4 h-4" />}
-                    {t('booking.myLocation')}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => openMapFor('pickup')}
-                    className="bg-[#1c1b1b] border border-[#f4bd70]/40 text-[#f4bd70] hover:bg-[#f4bd70]/20 px-3 py-3 rounded-xl flex items-center gap-1.5 font-bold transition-all whitespace-nowrap text-sm"
-                  >
-                    <MapIcon className="w-4 h-4" /> {t('booking.map')}
-                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={handleGetLocation}
+                      disabled={gpsLoading}
+                      className="flex-1 sm:flex-none justify-center bg-[#1c1b1b] border border-[#f4bd70]/40 text-[#f4bd70] hover:bg-[#f4bd70]/20 px-3 py-3 rounded-xl flex items-center gap-1.5 font-bold transition-all whitespace-nowrap text-sm disabled:opacity-50 w-full sm:w-auto"
+                    >
+                      {gpsLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Navigation className="w-4 h-4" />}
+                      {t('booking.myLocation')}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => openMapFor('pickup')}
+                      className="flex-1 sm:flex-none justify-center bg-[#1c1b1b] border border-[#f4bd70]/40 text-[#f4bd70] hover:bg-[#f4bd70]/20 px-3 py-3 rounded-xl flex items-center gap-1.5 font-bold transition-all whitespace-nowrap text-sm w-full sm:w-auto"
+                    >
+                      <MapIcon className="w-4 h-4" /> {t('booking.map')}
+                    </button>
+                  </div>
                 </div>
                 {gpsError && <p className="text-red-400 text-xs mt-1">{gpsError}</p>}
               </div>
@@ -462,18 +464,18 @@ export default function BookingSection({ settings, onOpenTrackModal }) {
                   <MapPin className="w-4 h-4" />
                   {t('booking.destinationLabel')}
                 </label>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <input
                     type="text"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     placeholder={t('booking.destinationPlaceholder')}
-                    className="flex-1 bg-[#131313]/50 border border-white/20 rounded-xl px-4 py-3 text-[#e5e2e1] focus:outline-none focus:border-[#f4bd70] transition-colors"
+                    className="flex-1 w-full sm:w-auto bg-[#131313]/50 border border-white/20 rounded-xl px-4 py-3 text-[#e5e2e1] focus:outline-none focus:border-[#f4bd70] transition-colors"
                   />
                   <button
                     type="button"
                     onClick={() => openMapFor('destination')}
-                    className="bg-[#1c1b1b] border border-[#f4bd70]/40 text-[#f4bd70] hover:bg-[#f4bd70]/20 px-4 py-3 rounded-xl flex items-center gap-2 font-bold transition-all whitespace-nowrap text-sm"
+                    className="justify-center bg-[#1c1b1b] border border-[#f4bd70]/40 text-[#f4bd70] hover:bg-[#f4bd70]/20 px-4 py-3 rounded-xl flex items-center gap-2 font-bold transition-all whitespace-nowrap text-sm w-full sm:w-auto"
                   >
                     <MapIcon className="w-4 h-4" /> {t('booking.map')}
                   </button>
@@ -517,7 +519,7 @@ export default function BookingSection({ settings, onOpenTrackModal }) {
                   {t('booking.loadingLandmarks')}
                 </div>
               ) : (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[22rem] overflow-y-auto p-2 custom-scrollbar">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[22rem] overflow-y-auto p-2 custom-scrollbar">
                   {filteredLandmarks.map((landmark) => {
                     const isSelected = selectedLandmark?.id === landmark.id
                     return (
@@ -557,7 +559,7 @@ export default function BookingSection({ settings, onOpenTrackModal }) {
                             <div className="flex justify-between items-start mb-1 gap-2">
                               <h4 dir="auto" className="text-sm font-bold text-[#f4bd70] leading-tight text-start">{getTranslated(landmark, 'name', i18n.language)}</h4>
                               {landmark.rating && (
-                                <div className="flex items-center gap-1 bg-black/40 px-1.5 py-0.5 rounded text-[10px] text-white shrink-0">
+                                <div className="flex items-center gap-1 bg-black/40 px-1.5 py-0.5 rounded text-[10px] text-white shrink-0 flex-shrink-0">
                                   <Star className="w-3 h-3 text-[#f4bd70] fill-[#f4bd70]" />
                                   <span>{landmark.rating}</span>
                                 </div>
@@ -567,7 +569,7 @@ export default function BookingSection({ settings, onOpenTrackModal }) {
                           </div>
                           
                           {landmark.description && (
-                            <p dir="auto" className="text-xs text-gray-200 line-clamp-2 mt-2 leading-relaxed text-start" title={getTranslated(landmark, 'description', i18n.language)}>
+                            <p dir="auto" className="text-xs text-gray-200 line-clamp-4 mt-2 leading-relaxed text-start" title={getTranslated(landmark, 'description', i18n.language)}>
                               {getTranslated(landmark, 'description', i18n.language)}
                             </p>
                           )}

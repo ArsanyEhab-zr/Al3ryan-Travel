@@ -61,7 +61,7 @@ export default function Navbar({ onOpenTrackModal, settings }) {
     <>
       <nav
         className={`fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl rounded-full z-50 transition-all duration-500 ${
-          scrolled ? 'liquid-glass-strong py-3 shadow-2xl border-[#f4bd70]/30' : 'liquid-glass py-4'
+          scrolled ? 'liquid-glass-strong py-2 md:py-3 shadow-2xl border-[#f4bd70]/30' : 'liquid-glass py-2 md:py-4'
         }`}
       >
         <div className="px-6 md:px-8 flex items-center justify-between">
@@ -73,12 +73,12 @@ export default function Navbar({ onOpenTrackModal, settings }) {
           >
             <div className="flex items-center gap-2 select-none group-hover:scale-105 transition-transform">
               {/* Custom Luxury Logo */}
-              <img src="/favicon.svg?v=2" alt="Al3ryan Travel" className="w-8 h-8 md:w-10 md:h-10 object-contain drop-shadow-[0_0_8px_rgba(244,189,112,0.4)]" />
+              <img src="/favicon.svg?v=2" alt="Al3ryan Travel" className="w-6 h-6 md:w-10 md:h-10 object-contain drop-shadow-[0_0_8px_rgba(244,189,112,0.4)]" />
               <div className="flex flex-col">
-                <span className="text-2xl font-bold bg-gradient-to-r from-[#f4bd70] to-yellow-200 bg-clip-text text-transparent tracking-wider" style={{ fontFamily: "'Cinzel', serif, sans-serif" }}>
+                <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#f4bd70] to-yellow-200 bg-clip-text text-transparent tracking-wider" style={{ fontFamily: "'Cinzel', serif, sans-serif" }}>
                   Al3ryan Travel
                 </span>
-                <span className="text-[9px] text-gray-400 tracking-[0.3em] uppercase mt-[-4px]">
+                <span className="text-[8px] md:text-[9px] text-gray-400 tracking-[0.3em] uppercase mt-[-4px]">
                   {t('nav.brandSubtitle')}
                 </span>
               </div>
