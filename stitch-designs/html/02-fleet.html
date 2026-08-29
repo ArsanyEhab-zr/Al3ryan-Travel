@@ -1,0 +1,276 @@
+<!DOCTYPE html><html class="dark" dir="rtl" lang="ar" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Pola Travel - Fleet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#d4c4b3",
+                    "on-secondary": "#2f3131",
+                    "secondary-container": "#454747",
+                    "surface-container-high": "#2a2a2a",
+                    "on-primary-container": "#573800",
+                    "surface-container-highest": "#353534",
+                    "outline-variant": "#504538",
+                    "surface-variant": "#353534",
+                    "on-surface": "#e5e2e1",
+                    "on-primary": "#452b00",
+                    "inverse-primary": "#7f5611",
+                    "surface-container": "#201f1f",
+                    "surface-dim": "#131313",
+                    "outline": "#9c8f7f",
+                    "primary-fixed-dim": "#f4bd70",
+                    "on-error": "#690005",
+                    "on-secondary-fixed-variant": "#454747",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-tertiary": "#003355",
+                    "tertiary-container": "#80addc",
+                    "surface-container-low": "#1c1b1b",
+                    "primary": "#f4bd70",
+                    "on-tertiary-fixed-variant": "#144a73",
+                    "secondary": "#c6c6c7",
+                    "primary-fixed": "#ffddb3",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-bright": "#3a3939",
+                    "on-tertiary-container": "#02416a",
+                    "tertiary": "#9dcbfb",
+                    "on-background": "#e5e2e1",
+                    "tertiary-fixed": "#cfe5ff",
+                    "background": "#131313",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "secondary-fixed": "#e2e2e2",
+                    "surface-tint": "#f4bd70",
+                    "on-secondary-container": "#b4b5b5",
+                    "inverse-on-surface": "#313030",
+                    "on-primary-fixed": "#291800",
+                    "surface": "#131313",
+                    "on-primary-fixed-variant": "#633f00",
+                    "surface-container-lowest": "#0e0e0e",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed": "#001d34",
+                    "tertiary-fixed-dim": "#9dcbfb",
+                    "primary-container": "#d4a056"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-lg": [
+                            "Barlow"
+                    ],
+                    "arabic-body": [
+                            "Cairo"
+                    ],
+                    "body-md": [
+                            "Barlow"
+                    ],
+                    "label-caps": [
+                            "Barlow"
+                    ],
+                    "display-lg-mobile": [
+                            "Instrument Serif"
+                    ],
+                    "display-lg": [
+                            "Instrument Serif"
+                    ],
+                    "headline-md": [
+                            "Cairo"
+                    ]
+            },
+            "fontSize": {
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "arabic-body": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.8",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&amp;family=Cairo:wght@400;700&amp;family=Instrument+Serif&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .liquid-glass {
+            background: rgba(19, 19, 19, 0.4);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid transparent;
+            background-image: linear-gradient(rgba(19, 19, 19, 0.4), rgba(19, 19, 19, 0.4)), linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+        .liquid-glass-strong {
+            background: rgba(19, 19, 19, 0.6);
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
+            border: 1px solid transparent;
+            background-image: linear-gradient(rgba(19, 19, 19, 0.6), rgba(19, 19, 19, 0.6)), linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+        .hero-pan {
+            animation: slowPan 30s linear infinite alternate;
+        }
+        @keyframes slowPan {
+            0% { transform: scale(1.05) translateX(0); }
+            100% { transform: scale(1.05) translateX(2%); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-arabic-body min-h-screen selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Top Navigation (Desktop) -->
+<nav class="hidden md:flex justify-between items-center px-8 py-4 w-full fixed top-8 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-container-max rounded-full backdrop-blur-xl border border-white/20 bg-surface/40 shadow-2xl z-50 transition-all duration-300">
+<div class="font-display-lg text-display-lg text-primary">Pola Travel</div>
+<div class="flex gap-8 items-center">
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors hover:scale-105 duration-300" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors hover:scale-105 duration-300" href="#">Trips</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 hover:scale-105 duration-300" href="#">Fleet</a>
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors hover:scale-105 duration-300" href="#">Shipping</a>
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors hover:scale-105 duration-300" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-caps hover:brightness-110 transition-all shadow-lg" style="box-shadow: rgba(229, 231, 235, 0.6) 0px 0px 12px;">Book Now</button>
+</div>
+</nav>
+<!-- Side Navigation (Mobile) -->
+<div class="md:hidden flex justify-between items-center px-margin-mobile py-4 fixed top-0 left-0 w-full z-50 liquid-glass-strong">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary">Pola Travel</div>
+<button class="text-on-surface" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Hero Section -->
+<header class="relative min-h-[512px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0 bg-surface-dim">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 hero-pan" data-alt="A cinematic, slow-panning, high-resolution shot of a luxury black SUV's polished exterior, focusing on the sleek lines, metallic paint reflecting soft light, set against a dark, moody studio environment to evoke high-end automotive precision and premium travel. Dark mode lighting with gold accents." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLv5pY1gntPoApwLB24ElHcmAItA64Xxn93Ra9gbpmUoBl9U-Sh7VaMqtEDMoFdNP6SioNQXa83X7dDgKikq-M9ZLoxxTPCzTk5IpfxSJ1kGMljJf9v5GjjgsJwf3eBIu4kE6zyFG4lyo1lKCBCBnc8CxuxBhTdXuJjr40KJ7_mmgdG2KEDXqhCvtMkz-fFtoIXPCtuQ2Dgo2clZanMFAA21WfpiGuP-m66KWBFtaMJdFJbW-7IaWzuA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-margin-desktop mt-24">
+<h1 class="font-headline-md text-headline-md text-on-surface mb-2">عربيات تناسب رحلتك</h1>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim">Cars Built for Your Journey</p>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Filters -->
+<div class="flex justify-center mb-16">
+<div class="liquid-glass rounded-full p-1 inline-flex gap-2 relative z-20">
+<button class="px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-label-caps transition-all" style="box-shadow: rgba(229, 231, 235, 0.6) 0px 0px 12px;">All Vehicles</button>
+<button class="px-6 py-2 rounded-full text-on-surface hover:text-primary transition-all font-label-caps">Passenger</button>
+<button class="px-6 py-2 rounded-full text-on-surface hover:text-primary transition-all font-label-caps">Cargo</button>
+</div>
+</div>
+<!-- Fleet Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Car Card 1 -->
+<div class="liquid-glass rounded-xl overflow-hidden group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+<div class="h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A professional studio shot of a luxurious black Mercedes S-Class sedan. The lighting is cinematic and moody, highlighting the sleek curves and polished chrome details against a dark background, reflecting premium elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFpp6W_vrr__Ba5Il8xd9zllq6cE4qGidyqQslw89dKggYzKG6FkCPcHKKTfmmjg6jFXhOOdz31VP23OlIXaxMLRc4dRZhMnnBk89N8D2xriW9BUF28wJxy1da2g4YTGIzSFVe6HAEBC7dLLExtCrVM_hFrtWBlbUmC8FqfDhpH9Aa2ePQbeEtwxrWZxIrAhWWlx-OmkZUi4MaEviczeTwaItSDTb0qiYDUD8gWJlcluTdP73itcz16w">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+</div>
+<div class="p-8 relative z-10 -mt-16"><div class="flex justify-between items-end mb-4"><h3 class="font-headline-md text-2xl text-on-surface">Luxury Sedan</h3><span class="text-primary font-body-lg">S-Class</span></div><div class="flex gap-4 mb-6"><div class="flex items-center gap-1 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[18px]">group</span><span class="">4</span></div><div class="flex items-center gap-1 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[18px]">work</span><span class="">3</span></div></div><div class="flex flex-wrap gap-2 mb-8"><span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-caps border border-primary/20">Spacious</span><span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-caps border border-primary/20">Wi-Fi</span><span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-caps border border-primary/20">A/C</span><span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-caps border border-primary/20">Chauffeur Driven</span></div><a class="inline-flex items-center gap-2 text-primary hover:text-primary-fixed transition-colors font-body-md group/link" href="#"><span class="">اسأل عن العربية دي / Ask About This Car</span><span class="material-symbols-outlined group-hover/link:-translate-x-1 transition-transform rtl:rotate-180">arrow_forward</span></a></div>
+</div>
+<!-- Car Card 2 -->
+<div class="liquid-glass rounded-xl overflow-hidden group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+<div class="h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A striking image of a spacious black luxury SUV, like a Cadillac Escalade, parked in a minimalist, dimly lit architectural space. The vehicle exudes power and comfort, with soft reflections on its pristine paintwork." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiXc1zFNyCQur7jdD4A_NbteOmhXLyCP0KsBnhQ_fGDcf-NoP8XhkpPBpFiPw6eKy_3QvZYapabMHA5Ya-XnZBNGzLfu9pj5b2YlIwEcQhZqdm5BxIn8Zhm1UdXEBl80xr8SB1gD2-BHq7RmCKMefrnEMIt7N5Z6Kwsae1nnYnm9HG3DzdmputcmwH3mpMXPTVLD4SEiBodEuGDOejLf2j1OUg87_fF-3OnFStB-KQPo6oHvJBMefARA">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+</div>
+<div class="p-8 relative z-10 -mt-16"><div class="flex justify-between items-end mb-4"><h3 class="font-headline-md text-2xl text-on-surface">Premium SUV</h3><span class="text-primary font-body-lg">Escalade</span></div><div class="flex gap-4 mb-6"><div class="flex items-center gap-1 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[18px]">group</span><span class="">7</span></div><div class="flex items-center gap-1 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[18px]">work</span><span class="">5</span></div></div><div class="flex flex-wrap gap-2 mb-8"><span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-caps border border-primary/20">Extra Legroom</span><span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-caps border border-primary/20">A/C</span><span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-caps border border-primary/20">Premium Sound</span></div><a class="inline-flex items-center gap-2 text-primary hover:text-primary-fixed transition-colors font-body-md group/link" href="#"><span class="">اسأل عن العربية دي / Ask About This Car</span><span class="material-symbols-outlined group-hover/link:-translate-x-1 transition-transform rtl:rotate-180">arrow_forward</span></a></div>
+</div>
+<!-- Car Card 3 -->
+<div class="liquid-glass rounded-xl overflow-hidden group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+<div class="h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A clean, modern cargo van in dark grey, photographed in a sleek warehouse setting with high-key lighting accents. The focus is on utility combined with a professional, high-end fleet aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcvHPes9QD1Md1y8x8BsptUFsDi9D2OLTOAGS7Vb8EbFWT8mqi6spW3mYxgg99FwPwLGq2dN7tjZkic8mQOyWOdH0-J2BPqhT6BdC_kHGTIaAuMsgWfAfii2fI2v4HfzYCplIbXI4qoYbJuQM-iqj15HgaApDDd4JxDXk5ho75xNmvuVgRm753Ba_Nldx0brcoOzCB8nWNKAsiHNZ5SxxrOOPRtgVe1KvNSfNVOVJE3otgn20oSLUiQA">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+</div>
+<div class="p-8 relative z-10 -mt-16"><div class="flex justify-between items-end mb-4"><h3 class="font-headline-md text-2xl text-on-surface">Cargo Van</h3><span class="text-primary font-body-lg">Sprinter</span></div><div class="flex gap-4 mb-6"><div class="flex items-center gap-1 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[18px]">group</span><span class="">2</span></div><div class="flex items-center gap-1 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span class="">15m³</span></div></div><div class="flex flex-wrap gap-2 mb-8"><span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-caps border border-primary/20">Secure</span><span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-caps border border-primary/20">Heavy Duty</span><span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-caps border border-primary/20">Long Haul</span></div><a class="inline-flex items-center gap-2 text-primary hover:text-primary-fixed transition-colors font-body-md group/link" href="#"><span class="">اسأل عن العربية دي / Ask About This Car</span><span class="material-symbols-outlined group-hover/link:-translate-x-1 transition-transform rtl:rotate-180">arrow_forward</span></a></div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-16 px-margin-mobile md:px-margin-desktop border-t border-outline-variant mt-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-2">
+<div class="font-display-lg text-display-lg text-primary mb-4">Pola Travel</div>
+<p class="font-body-sm text-on-surface-variant mb-8 text-on-surface">© 2024 Pola Travel. Precision in Motion.</p>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" href="#">FAQ</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" href="#">Careers</a>
+</div>
+</div>
+</footer>
+
+
+</body></html>

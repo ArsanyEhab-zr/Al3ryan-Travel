@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #f4bd70;
+    --primary-container: #d4a056;
+    --background: #131313;
+    --surface: #1c1b1b;
+    --on-background: #e5e2e1;
+    --on-surface-variant: #d4c4b3;
+  }
+}
+
+.font-serif-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-cairo {
+  font-family: 'Cairo', sans-serif;
+}
+
+.font-barlow {
+  font-family: 'Barlow', sans-serif;
+}
+
+/* Glassmorphism custom classes */
+.liquid-glass {
+  background: rgba(19, 19, 19, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 189, 112, 0.15);
+}
+
+.liquid-glass-strong {
+  background: rgba(19, 19, 19, 0.75);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(244, 189, 112, 0.25);
+}
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(244, 189, 112, 0.25);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 25px rgba(244, 189, 112, 0.4);
+  border-color: rgba(244, 189, 112, 0.6);
+}
+
+/* Hide scrollbar for clean horizontal tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

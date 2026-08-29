@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pola Travel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Barlow:wght@400;600&amp;family=Cairo:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#9dcbfb",
+                        "secondary-fixed": "#e2e2e2",
+                        "primary-container": "#d4a056",
+                        "primary-fixed-dim": "#f4bd70",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-bright": "#3a3939",
+                        "on-background": "#e5e2e1",
+                        "surface-container-highest": "#353534",
+                        "surface-dim": "#131313",
+                        "secondary-container": "#454747",
+                        "on-tertiary-container": "#02416a",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-variant": "#353534",
+                        "surface-tint": "#f4bd70",
+                        "on-primary-fixed-variant": "#633f00",
+                        "secondary": "#c6c6c7",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#9dcbfb",
+                        "primary-fixed": "#ffddb3",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-container": "#b4b5b5",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "background": "#131313",
+                        "on-primary": "#452b00",
+                        "on-tertiary-fixed": "#001d34",
+                        "on-surface-variant": "#d4c4b3",
+                        "on-primary-fixed": "#291800",
+                        "surface-container": "#201f1f",
+                        "on-tertiary-fixed-variant": "#144a73",
+                        "on-secondary": "#2f3131",
+                        "tertiary-container": "#80addc",
+                        "on-primary-container": "#573800",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "inverse-primary": "#7f5611",
+                        "on-tertiary": "#003355",
+                        "outline-variant": "#504538",
+                        "outline": "#9c8f7f",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface": "#131313",
+                        "primary": "#f4bd70"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Instrument Serif"],
+                        "label-caps": ["Barlow"],
+                        "arabic-body": ["Cairo"],
+                        "headline-md": ["Cairo"],
+                        "display-lg-mobile": ["Instrument Serif"],
+                        "body-lg": ["Barlow"],
+                        "body-md": ["Barlow"]
+                    },
+                    fontSize: {
+                        "display-lg": ["64px", { "lineHeight": "1.1", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "arabic-body": ["16px", { "lineHeight": "1.8", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .liquid-glass {
+            backdrop-filter: blur(4px);
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .liquid-glass-strong {
+            backdrop-filter: blur(50px);
+            background: rgba(19,19,19,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- Top Navigation (Generated from JSON) -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-margin-desktop py-unit-2 rounded-full mt-unit-gutter mx-margin-desktop liquid-glass-strong">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary">
+            Pola Travel
+        </div>
+<div class="hidden md:flex space-x-gutter">
+<a class="text-primary border-b-2 border-primary pb-1 font-body-md text-body-md transition-transform scale-95 active:opacity-80" href="#">Home</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Trips</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Fleet</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Shipping</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="flex items-center space-x-unit">
+<button class="liquid-glass text-primary px-unit-2 py-unit rounded-full font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-all">Book Now</button>
+<button class="text-primary p-1"><span class="material-symbols-outlined">language</span></button>
+<button class="text-primary p-1"><span class="material-symbols-outlined">dark_mode</span></button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow relative w-full h-full pt-[120px]">
+<!-- Hero Section -->
+<section class="relative w-full h-[819px] flex items-center justify-center overflow-hidden mx-auto max-w-container-max rounded-xl">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-60 mix-blend-luminosity" data-alt="A cinematic, wide-angle shot of a luxurious black SUV driving across an expansive, sun-drenched desert highway in Egypt. The warm golden-hour sunlight casts dramatic shadows, highlighting the sleek lines of the vehicle against the endless dunes. The image feels premium, quiet, and expansive, utilizing a sophisticated color palette of deep blacks, rich ambers, and dusty gold tones, perfectly matching a high-end travel brand aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfOKiFi2ZxK-Dha4x_7giO284YqpdEfImzznFu4A3Srk1F1C74izJZqys8DcLinqG5PzUOEXDtqiabKzs2RoqL26MIsfpHfUzkSxEGhWYLy6-ONESGCtrA9jW7Ek9CNiMe7Bs2cN5a4c5Ltyjay9leqMJ-W3jDH1ewPoC2a1jMhcl5w_DdNiI7C0j-SaKT_FZ2f8Gv_2Om01A6sZJZaAEiut_-XBnLT70IYOukP2WBnkneFd5LwOAgpA')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background/40 to-background"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop liquid-glass p-margin-desktop rounded-xl max-w-3xl">
+<h1 class="font-display-lg text-display-lg text-on-background mb-gutter">The Journey is the Destination.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-margin-desktop">Experience unparalleled comfort and precision on every mile. From cityscapes to endless horizons, Pola Travel redefines the road.</p>
+<button class="bg-primary-container text-on-primary-container rounded-full px-margin-desktop py-unit-2 font-label-caps text-label-caps hover:shadow-[inset_0_0_15px_rgba(255,255,255,0.3)] transition-all">Explore the Fleet</button>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-margin-desktop px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="liquid-glass p-gutter rounded-xl text-center">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary mb-unit">500+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Trips Completed</div>
+</div>
+<div class="liquid-glass p-gutter rounded-xl text-center">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary mb-unit">24/7</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Support Available</div>
+</div>
+<div class="liquid-glass p-gutter rounded-xl text-center">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary mb-unit">Premium</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Fleet Quality</div>
+</div>
+<div class="liquid-glass p-gutter rounded-xl text-center">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary mb-unit">100%</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Client Satisfaction</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Generated from JSON) -->
+<footer class="w-full bg-surface-dim/80 backdrop-blur-xl rounded-t-xl liquid-glass border-t border-white/10 mt-auto">
+<div class="w-full py-margin-desktop px-margin-desktop flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg text-primary mb-gutter md:mb-0">
+                Pola Travel
+            </div>
+<div class="flex flex-col md:flex-row space-y-unit md:space-y-0 md:space-x-gutter items-center text-center md:text-left">
+<a class="font-body-sm text-body-sm text-on-secondary-container opacity-90 hover:opacity-100 hover:text-primary-fixed-dim transition-all" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-secondary-container opacity-90 hover:opacity-100 hover:text-primary-fixed-dim transition-all" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-secondary-container opacity-90 hover:opacity-100 hover:text-primary-fixed-dim transition-all" href="#">FAQ</a>
+<a class="font-body-sm text-body-sm text-on-secondary-container opacity-90 hover:opacity-100 hover:text-primary-fixed-dim transition-all" href="#">Contact Us</a>
+</div>
+<div class="font-body-sm text-body-sm text-on-secondary-container mt-gutter md:mt-0">
+                © 2024 Pola Travel. All Rights Reserved.
+            </div>
+</div>
+</footer>
+</body></html>

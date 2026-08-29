@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Outer Map Pin (Tourism) -->
+  <path d="M50 5 C28 5 15 22 15 40 C15 65 50 95 50 95 C50 95 85 65 85 40 C85 22 72 5 50 5 Z" fill="none" stroke="#f4bd70" stroke-width="8" stroke-linejoin="round"/>
+  
+  <!-- Car Front Silhouette (Cars) -->
+  <path d="M30 45 C30 35 40 30 50 30 C60 30 70 35 70 45 L75 55 L75 62 L25 62 L25 55 Z" fill="none" stroke="#f4bd70" stroke-width="6" stroke-linejoin="round"/>
+  
+  <!-- Car Windshield -->
+  <path d="M36 45 L64 45 L59 36 L41 36 Z" fill="#f4bd70"/>
+  
+  <!-- Headlights -->
+  <circle cx="32" cy="55" r="4" fill="#f4bd70"/>
+  <circle cx="68" cy="55" r="4" fill="#f4bd70"/>
+</svg>

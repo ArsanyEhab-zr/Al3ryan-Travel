@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pola Travel - Contact</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&amp;family=Cairo:wght@400;700&amp;family=Instrument+Serif&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#d4c4b3",
+                        "on-secondary": "#2f3131",
+                        "secondary-container": "#454747",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary-container": "#573800",
+                        "surface-container-highest": "#353534",
+                        "outline-variant": "#504538",
+                        "surface-variant": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "on-primary": "#452b00",
+                        "inverse-primary": "#7f5611",
+                        "surface-container": "#201f1f",
+                        "surface-dim": "#131313",
+                        "outline": "#9c8f7f",
+                        "primary-fixed-dim": "#f4bd70",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-tertiary": "#003355",
+                        "tertiary-container": "#80addc",
+                        "surface-container-low": "#1c1b1b",
+                        "primary": "#f4bd70",
+                        "on-tertiary-fixed-variant": "#144a73",
+                        "secondary": "#c6c6c7",
+                        "primary-fixed": "#ffddb3",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-container": "#02416a",
+                        "tertiary": "#9dcbfb",
+                        "on-background": "#e5e2e1",
+                        "tertiary-fixed": "#cfe5ff",
+                        "background": "#131313",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-tint": "#f4bd70",
+                        "on-secondary-container": "#b4b5b5",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-fixed": "#291800",
+                        "surface": "#131313",
+                        "on-primary-fixed-variant": "#633f00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#001d34",
+                        "tertiary-fixed-dim": "#9dcbfb",
+                        "primary-container": "#d4a056"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Barlow"],
+                        "arabic-body": ["Cairo"],
+                        "body-md": ["Barlow"],
+                        "label-caps": ["Barlow"],
+                        "display-lg-mobile": ["Instrument Serif"],
+                        "display-lg": ["Instrument Serif"],
+                        "headline-md": ["Cairo"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "arabic-body": ["16px", { "lineHeight": "1.8", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .liquid-glass {
+            backdrop-filter: blur(4px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .liquid-glass-strong {
+            backdrop-filter: blur(50px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gold { color: #D4A056; }
+        .bg-gold { background-color: #D4A056; }
+        .border-gold { border-color: #D4A056; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-arabic-body min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- TopNavBar (Web) -->
+<nav class="hidden md:flex justify-between items-center px-8 py-4 w-full fixed top-8 left-1/2 -translate-x-1/2 max-w-container-max rounded-full backdrop-blur-xl border border-white/20 bg-surface/40 shadow-2xl z-50 transition-all duration-300" id="topNav">
+<div class="font-display-lg text-display-lg text-primary">Pola Travel</div>
+<div class="flex space-x-8 space-x-reverse items-center">
+<a class="text-on-surface hover:text-primary transition-colors font-body-md text-body-md" data-en="Home" href="#">الرئيسية</a>
+<a class="text-on-surface hover:text-primary transition-colors font-body-md text-body-md" data-en="Trips" href="#">الرحلات</a>
+<a class="text-on-surface hover:text-primary transition-colors font-body-md text-body-md" data-en="Fleet" href="#">الأسطول</a>
+<a class="text-on-surface hover:text-primary transition-colors font-body-md text-body-md" data-en="Shipping" href="#">الشحن</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" data-en="Contact" href="#">اتصل بنا</a>
+</div>
+<div class="flex items-center space-x-4 space-x-reverse">
+<button class="text-on-surface hover:text-primary transition-colors" id="langToggle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">language</span>
+</button>
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-2 rounded-full hover:opacity-80 transition-opacity" data-en="Book Now">احجز الآن</button>
+</div>
+</nav>
+<!-- SideNavBar (Mobile) -->
+<div class="md:hidden flex justify-between items-center px-margin-mobile py-4 w-full fixed top-0 left-0 bg-surface-container-high/80 backdrop-blur-md z-50 border-b border-outline-variant">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary">Pola Travel</div>
+<button class="text-on-surface" id="mobileMenuBtn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-surface-container-high/95 backdrop-blur-xl z-[60] translate-x-full transition-transform duration-500 flex flex-col pt-20 px-6" id="mobileMenu">
+<button class="absolute top-6 right-6 text-on-surface" id="closeMobileMenu">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="flex flex-col space-y-6 text-center mt-12">
+<a class="text-on-surface-variant hover:text-on-surface py-2 text-xl" data-en="Home" href="#">الرئيسية</a>
+<a class="text-on-surface-variant hover:text-on-surface py-2 text-xl" data-en="Trips" href="#">الرحلات</a>
+<a class="text-on-surface-variant hover:text-on-surface py-2 text-xl" data-en="Fleet" href="#">الأسطول</a>
+<a class="text-on-surface-variant hover:text-on-surface py-2 text-xl" data-en="Shipping" href="#">الشحن</a>
+<a class="bg-primary-container text-on-primary-container rounded-full py-3 text-xl font-bold" data-en="Contact" href="#">اتصل بنا</a>
+</div>
+</div>
+<!-- Header Section -->
+<header class="relative min-h-[409px] md:min-h-[512px] flex items-center justify-center pt-24 md:pt-0 overflow-hidden">
+<!-- Background Imagery -->
+<div class="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full z-0 opacity-60" data-alt="A cinematic, ultra-high-definition establishing shot of a sleek, modern luxury vehicle parked in a minimalist, architectural parking structure during a breathtaking sunset. The sky is awash in deep oranges, purples, and warm gold tones that reflect off the polished surfaces of the car and the smooth concrete floor. The lighting is soft yet dramatic, emphasizing the premium automotive aesthetic of Pola Travel. The overall mood is calm, luxurious, and highly professional, setting a tone of high-end service." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBay-O0vt6OPD7eWSaatfl9oJWfCnuXXBViPKdT-YkGonpTTSDzjmCsBPyLGJXeuiPsONWxExKddKY_03-zTg3Q-r4YpRBMLO57TT4YhP928PpyKuE-j3msC1hFy_MzkhQwNx9xWZoIetfmHAe3yXbCUs0htteDmEqlNE_Jve17VPnSwLFyU_jvEwQ-_R7MPiriTzO1J39_hl1clgSIDHsqvd_4z39S1m1o2m2SgMLBav8qdibhqX76Wg')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-10"></div>
+<div class="relative z-20 text-center px-margin-mobile md:px-margin-desktop">
+<h1 class="font-headline-md text-headline-md md:text-5xl lg:text-6xl text-on-surface mb-4" data-en="We're Here to Help">احنا هنا نساعدك</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto" data-en="Experience seamless support for your luxury travel needs. Reach out to our dedicated concierge team.">استمتع بدعم سلس لاحتياجات سفرك الفاخرة. تواصل مع فريق الكونسيرج المخصص لدينا.</p>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="flex-grow relative z-20 px-margin-mobile md:px-margin-desktop py-16 -mt-12 max-w-container-max mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Left: Contact Cards (Stacked Liquid Glass) -->
+<div class="flex flex-col space-y-6">
+<!-- Phone Card -->
+<div class="liquid-glass rounded-xl p-8 flex items-start space-x-6 space-x-reverse hover:scale-[1.02] transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
+<span class="material-symbols-outlined text-gold" style="font-variation-settings: 'FILL' 1;">call</span>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-en="DIRECT LINE">الخط المباشر</h3>
+<a class="font-headline-md text-2xl text-on-surface hover:text-primary transition-colors block" dir="ltr" href="tel:+1234567890">+1 (234) 567-890</a>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2" data-en="Available 24/7 for premium bookings.">متاح على مدار 24 ساعة للحجوزات المميزة.</p>
+</div>
+</div>
+<!-- WhatsApp Card -->
+<div class="liquid-glass rounded-xl p-8 flex items-start space-x-6 space-x-reverse hover:scale-[1.02] transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
+<span class="material-symbols-outlined text-gold" style="font-variation-settings: 'FILL' 1;">chat</span>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-en="WHATSAPP">واتساب</h3>
+<a class="font-headline-md text-2xl text-on-surface hover:text-primary transition-colors block" dir="ltr" href="https://wa.me/1234567890">+1 (234) 567-890</a>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2" data-en="Instant messaging for quick inquiries.">رسائل فورية للاستفسارات السريعة.</p>
+</div>
+</div>
+<!-- Location Card -->
+<div class="liquid-glass rounded-xl p-8 flex items-start space-x-6 space-x-reverse hover:scale-[1.02] transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
+<span class="material-symbols-outlined text-gold" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-en="HEADQUARTERS">المقر الرئيسي</h3>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed" data-en="123 Luxury Ave, Business Bay&lt;br&gt;Dubai, United Arab Emirates">١٢٣ شارع الفخامة، الخليج التجاري<br/>دبي، الإمارات العربية المتحدة</p>
+</div>
+</div>
+</div>
+<!-- Right: Map Frame (Liquid Glass) -->
+<div class="liquid-glass rounded-xl p-2 relative h-[400px] lg:h-auto overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent z-10 pointer-events-none"></div>
+<div class="w-full h-full bg-cover bg-center rounded-lg opacity-80 group-hover:opacity-100 transition-opacity duration-500" data-alt="A highly detailed, stylized map interface centered on Dubai, United Arab Emirates. The map uses a sleek, dark mode color palette with subtle gold accents highlighting key arterial routes and luxury districts. The style is minimalist and technological, resembling a high-end in-car navigation system or a premium travel dashboard. The overall look is clean, sophisticated, and perfectly aligns with the Pola Travel brand aesthetic." data-location="Dubai" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0BxCAtQnwYVjgWSMo8IgPNyX3vQPaDe_9MzHCiI0LT9DFQNxU35C9sAxjwA2H5HQeuE0seobE4TJWp4XolfaoFRwilH6j-qSjIFXMgQe1oQ5_41a_8cnfvzrQTtVbHIqMt0IeYEklOrSvWhiunjhr7YmzeSe5htP1Ve9iB8_HWaZHIbMsJXkom5NAvASatbDUE2w4XE8_xjKUzwbDjRTHlQJ6GqdRyT7a3cMD-3WtWiGXtD9HIP_tTA')"></div>
+<!-- Map Overlay Info -->
+<div class="absolute bottom-6 left-6 right-6 z-20 liquid-glass-strong rounded-xl p-4 flex justify-between items-center border border-white/10">
+<div>
+<p class="font-label-caps text-label-caps text-gold mb-1" data-en="DUBAI OFFICE">مكتب دبي</p>
+<p class="font-body-sm text-sm text-on-surface" data-en="Open until 8:00 PM">مفتوح حتى ٨:٠٠ مساءً</p>
+</div>
+<button class="w-10 h-10 rounded-full border border-gold flex items-center justify-center hover:bg-gold hover:text-background transition-colors">
+<span class="material-symbols-outlined text-sm">directions</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Banner -->
+<div class="mt-16 liquid-glass-strong rounded-2xl p-8 md:p-12 text-center border border-primary/20 relative overflow-hidden">
+<!-- Subtle glow effect -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent z-0 pointer-events-none"></div>
+<div class="relative z-10">
+<h2 class="font-headline-md text-3xl md:text-4xl text-on-surface mb-8" data-en="Want to book right now?">عايز تحجز دلوقتي؟</h2>
+<div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse">
+<button class="w-full sm:w-auto bg-gold text-background font-body-md font-bold px-8 py-4 rounded-full flex items-center justify-center space-x-2 space-x-reverse hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(212,160,86,0.3)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+<span data-en="Call Now">اتصل الآن</span>
+</button>
+<button class="w-full sm:w-auto liquid-glass border border-gold text-gold font-body-md font-bold px-8 py-4 rounded-full flex items-center justify-center space-x-2 space-x-reverse hover:bg-gold/10 transition-colors">
+<span class="material-symbols-outlined">chat</span>
+<span data-en="WhatsApp Us">راسلنا واتساب</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest text-primary font-body-sm text-body-sm w-full py-16 px-margin-desktop border-t border-outline-variant mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-2">
+<div class="font-display-lg text-display-lg text-primary mb-4">Pola Travel</div>
+<p class="text-on-surface-variant max-w-sm mb-6" data-en="Precision in Motion. Elevating your travel experience with luxury and reliability.">الدقة في الحركة. نرتقي بتجربة سفرك بالفخامة والموثوقية.</p>
+<p>© 2024 Pola Travel. Precision in Motion.</p>
+</div>
+<div class="flex flex-col space-y-3">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-2" data-en="LEGAL">قانوني</h4>
+<a class="text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" data-en="Privacy Policy" href="#">سياسة الخصوصية</a>
+<a class="text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" data-en="Terms of Service" href="#">شروط الخدمة</a>
+</div>
+<div class="flex flex-col space-y-3">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-2" data-en="COMPANY">الشركة</h4>
+<a class="text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" data-en="FAQ" href="#">الأسئلة الشائعة</a>
+<a class="text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" data-en="Careers" href="#">الوظائف</a>
+</div>
+</div>
+</footer>
+<script>
+        // Language Toggle Logic
+        const langToggle = document.getElementById('langToggle');
+        const htmlTag = document.documentElement;
+        let currentLang = 'ar';
+
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            htmlTag.setAttribute('lang', currentLang);
+            htmlTag.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Update text content based on data-en attributes
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const enText = el.getAttribute('data-en');
+                const arText = el.getAttribute('data-ar') || el.innerText; // Store original Arabic if not already stored
+                
+                if (!el.getAttribute('data-ar')) {
+                    el.setAttribute('data-ar', arText);
+                }
+
+                el.innerText = currentLang === 'en' ? enText : el.getAttribute('data-ar');
+                
+                // Handle inner HTML for location address
+                if(el.innerHTML.includes('<br>')){
+                     if(currentLang === 'en'){
+                         el.innerHTML = enText;
+                     } else {
+                         el.innerHTML = el.getAttribute('data-ar');
+                     }
+                }
+            });
+
+            // Adjust space-x-reverse for RTL/LTR
+            const spaceElements = document.querySelectorAll('.space-x-reverse');
+            spaceElements.forEach(el => {
+                if (currentLang === 'en') {
+                    el.classList.remove('space-x-reverse');
+                } else {
+                    el.classList.add('space-x-reverse');
+                }
+            });
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            if(currentLang === 'en'){
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+            }
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+             mobileMenu.classList.add('translate-x-full');
+             mobileMenu.classList.remove('translate-x-0');
+        });
+        
+        // Simple scroll effect for TopNav
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('topNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-surface/80');
+                nav.classList.remove('bg-surface/40');
+            } else {
+                nav.classList.add('bg-surface/40');
+                nav.classList.remove('bg-surface/80');
+            }
+        });
+    </script>
+</body></html>
