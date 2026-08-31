@@ -98,33 +98,24 @@ export default function BookingSection({ settings, onOpenTrackModal }) {
     )
   }, [landmarks, searchQuery])
 
-  // Dynamic max passengers from selected car
-  const maxPassengers = selectedCar?.max_passengers || 5
+  // Dynamic max passengers from fleet or selected car
+  const maxFleetPassengers = cars && cars.length > 0 
+    ? Math.max(...cars.map(car => car.max_passengers || car.capacity || car.seats || 4))
+    : 4; // Fallback
+  const maxPassengers = selectedCar?.max_passengers || maxFleetPassengers;
 
   // Passenger stepper handlers (1 to maxPassengers)
   const incrementPassengers = () => {
-    setPassengersCount((prev) => {
-      const limit = selectedCar?.max_passengers || 5
-      const next = Math.min(Number(prev) + 1, limit)
-      return next
-    })
+    setPassengersCount((prev) => Math.min(Number(prev) + 1, maxPassengers))
   }
   const decrementPassengers = () => {
-    setPassengersCount((prev) => {
-      const next = Math.max(Number(prev) - 1, 1)
-      return next
-    })
+    setPassengersCount((prev) => Math.max(Number(prev) - 1, 1))
   }
 
-  // When car selection changes, clamp passenger count to new max
+  // When max passenger limit changes, clamp passenger count to new max
   useEffect(() => {
-    if (selectedCar) {
-      const carMax = selectedCar.max_passengers || 5
-      if (passengersCount > carMax) {
-        setPassengersCount(carMax)
-      }
-    }
-  }, [selectedCarId, selectedCar])
+    setPassengersCount(prev => prev > maxPassengers ? maxPassengers : prev)
+  }, [maxPassengers])
 
   // GPS handler for pickup
   const handleGetLocation = () => {
