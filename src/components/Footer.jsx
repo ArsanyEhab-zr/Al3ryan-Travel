@@ -1,10 +1,11 @@
-import { MapPin, Phone, MessageSquare, Shield } from 'lucide-react'
+import { MapPin, MessageSquare, Shield } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { useSettings } from '../hooks/useSupabaseData'
 
 export default function Footer({ settings }) {
   const { t } = useTranslation()
-  const phone = settings?.phone || '+201001234567'
-  const whatsapp = settings?.whatsapp || '+201001234567'
+  const { cs_whatsapp_number } = useSettings()
+  const whatsapp = cs_whatsapp_number || '201000000000'
   // Address MUST be hardcoded as "شبرا مصر"
   const address = 'شبرا مصر'
 
@@ -53,12 +54,7 @@ export default function Footer({ settings }) {
               <MapPin className="w-4 h-4 text-[#f4bd70] shrink-0" />
               <span>{t('footer.hq')} <strong className="text-[#e5e2e1] font-bold">{address}</strong></span>
             </li>
-            <li className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-[#f4bd70] shrink-0" />
-              <a href={`tel:${phone}`} dir="ltr" className="hover:text-[#f4bd70] transition-colors">
-                {phone}
-              </a>
-            </li>
+
             <li className="flex items-center gap-2">
               <MessageSquare className="w-4 h-4 text-[#f4bd70] shrink-0" />
               <a

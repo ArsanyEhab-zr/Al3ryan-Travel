@@ -41,7 +41,7 @@ export default function AdminDashboard() {
   const { cars, addCar, updateCar, toggleCarActive, deleteCar } = useCars(false)
   const { reviews: unapprovedReviews, approveReview, deleteReview, refetch: refetchReviews } = useReviews(false)
   const { landmarks, addLandmark, updateLandmark, deleteLandmark } = useLandmarks()
-  const { settings, updateSettings } = useSettings()
+  const { settings, updateSettings, updateCSNumber } = useSettings()
 
   // Form States for Content Tab
   const [newCar, setNewCar] = useState({ name: '', max_passengers: 4, image_url: '' })
@@ -49,10 +49,9 @@ export default function AdminDashboard() {
   const [newLandmark, setNewLandmark] = useState({ name: '', city: '', description: '', rating: 5.0, image_url: '' })
   const [editingLandmarkId, setEditingLandmarkId] = useState(null)
   const [settingsForm, setSettingsForm] = useState({
-    phone: '',
-    whatsapp: '',
     address: 'شبرا مصر',
     hero_video_url: '',
+    cs_whatsapp_number: '',
   })
   const [settingsSuccess, setSettingsSuccess] = useState(false)
 
@@ -80,10 +79,9 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (settings) {
       setSettingsForm({
-        phone: settings.phone || '+201001234567',
-        whatsapp: settings.whatsapp || '+201001234567',
         address: settings.address || 'شبرا مصر',
         hero_video_url: settings.hero_video_url || '',
+        cs_whatsapp_number: settings.cs_whatsapp_number || '201000000000',
       })
     }
   }, [settings])
@@ -165,11 +163,12 @@ export default function AdminDashboard() {
     setEditingLandmarkId(null)
   }
 
-  // Handle Settings Save
   const handleSaveSettings = async (e) => {
     e.preventDefault()
-    const res = await updateSettings(settingsForm)
-    if (res.success) {
+    const { cs_whatsapp_number, ...restSettings } = settingsForm
+    const res = await updateSettings(restSettings)
+    const csRes = await updateCSNumber(cs_whatsapp_number)
+    if (res.success || csRes?.success) {
       setSettingsSuccess(true)
       setTimeout(() => setSettingsSuccess(false), 3000)
     }
@@ -713,25 +712,16 @@ export default function AdminDashboard() {
             )}
 
             <form onSubmit={handleSaveSettings} className="space-y-4">
-              <div>
-                <label className="text-xs text-[#d4c4b3] block mb-1">رقم هاتف الاتصال المباشر</label>
+              <div className="border-t border-[#504538]/30 pt-4 mt-4">
+                <h4 className="font-bold text-sm text-[#f4bd70] mb-3">إعدادات النظام (System Settings)</h4>
+                <label className="text-xs text-[#d4c4b3] block mb-1">رقم خدمة العملاء الموحد للواتساب (بدون مسافات او +)</label>
                 <input
                   type="text"
                   dir="ltr"
-                  value={settingsForm.phone}
-                  onChange={(e) => setSettingsForm({ ...settingsForm, phone: e.target.value })}
+                  value={settingsForm.cs_whatsapp_number}
+                  onChange={(e) => setSettingsForm({ ...settingsForm, cs_whatsapp_number: e.target.value })}
                   className="w-full bg-[#1c1b1b] border border-[#504538] rounded-xl px-4 py-2.5 text-xs text-[#e5e2e1]"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs text-[#d4c4b3] block mb-1">رقم الواتساب للتفاوض مباشر</label>
-                <input
-                  type="text"
-                  dir="ltr"
-                  value={settingsForm.whatsapp}
-                  onChange={(e) => setSettingsForm({ ...settingsForm, whatsapp: e.target.value })}
-                  className="w-full bg-[#1c1b1b] border border-[#504538] rounded-xl px-4 py-2.5 text-xs text-[#e5e2e1]"
+                  placeholder="201000000000"
                 />
               </div>
 

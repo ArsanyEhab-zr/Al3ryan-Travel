@@ -7,7 +7,8 @@ export function useSettings() {
     phone: '+201001234567',
     whatsapp: '+201001234567',
     address: 'شبرا مصر',
-    hero_video_url: 'https://assets.mixkit.co/videos/preview/mixkit-car-driving-on-a-road-in-the-middle-of-a-4061-large.mp4'
+    hero_video_url: 'https://assets.mixkit.co/videos/preview/mixkit-car-driving-on-a-road-in-the-middle-of-a-4061-large.mp4',
+    cs_whatsapp_number: '201000000000'
   })
   const [loading, setLoading] = useState(true)
 
@@ -15,8 +16,13 @@ export function useSettings() {
     try {
       setLoading(true)
       const { data, error } = await supabase.from('settings').select('*').limit(1).single()
+      const { data: csData, error: csError } = await supabase.from('site_settings').select('cs_whatsapp_number').eq('id', 1).single()
+      
       if (!error && data) {
-        setSettings(data)
+        setSettings(prev => ({ ...prev, ...data }))
+      }
+      if (!csError && csData) {
+        setSettings(prev => ({ ...prev, cs_whatsapp_number: csData.cs_whatsapp_number }))
       }
     } catch {
       // Silently use defaults on fetch failure
@@ -38,11 +44,24 @@ export function useSettings() {
     return { success: false, error }
   }
 
+  const updateCSNumber = async (newNumber) => {
+    const { data, error } = await supabase
+      .from('site_settings')
+      .update({ cs_whatsapp_number: newNumber })
+      .eq('id', 1)
+      .select()
+    if (!error && data?.[0]) {
+      setSettings(prev => ({ ...prev, cs_whatsapp_number: data[0].cs_whatsapp_number }))
+      return { success: true }
+    }
+    return { success: false, error }
+  }
+
   useEffect(() => {
     fetchSettings()
   }, [fetchSettings])
 
-  return { settings, loading, refetch: fetchSettings, updateSettings }
+  return { settings, loading, refetch: fetchSettings, updateSettings, cs_whatsapp_number: settings.cs_whatsapp_number, updateCSNumber }
 }
 
 // 2. Cars Hook

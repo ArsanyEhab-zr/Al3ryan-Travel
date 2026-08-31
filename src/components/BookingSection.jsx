@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
-import { useCars, useTripRequests, useLandmarks } from '../hooks/useSupabaseData'
+import { useCars, useTripRequests, useLandmarks, useSettings } from '../hooks/useSupabaseData'
 import { Users, MapPin, Phone, Car, CheckCircle2, MessageSquare, AlertCircle, ArrowLeft, Search, Loader2, Navigation, X, Map as MapIcon, Plus, Minus, Compass, Star } from 'lucide-react'
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -61,6 +61,7 @@ export default function BookingSection({ settings, onOpenTrackModal }) {
   const { cars, loading: carsLoading } = useCars(true)
   const { submitTripRequest } = useTripRequests()
   const { landmarks, loading: landmarksLoading } = useLandmarks()
+  const { cs_whatsapp_number } = useSettings()
 
   const [pickup, setPickup] = useState('')
   const [destination, setDestination] = useState('')
@@ -249,7 +250,11 @@ export default function BookingSection({ settings, onOpenTrackModal }) {
       passengers: submittedData.passengers,
       guide: guideText
     })
-    return `https://wa.me/201223901660?text=${encodeURIComponent(message)}`
+    
+    const rawNumber = cs_whatsapp_number || '201223901660'
+    const cleanNumber = rawNumber.replace(/[^0-9]/g, '')
+    
+    return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`
   }
 
   return (
@@ -357,23 +362,16 @@ export default function BookingSection({ settings, onOpenTrackModal }) {
             </div>
           </div>
 
-          {/* Action Buttons: WhatsApp + Call */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 animate-[fadeIn_0.8s_ease-out_0.8s_both]">
+          {/* Action Buttons: WhatsApp Only */}
+          <div className="flex justify-center mb-8 animate-[fadeIn_0.8s_ease-out_0.8s_both]">
             <a
               href={buildWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 rounded-xl flex justify-center items-center gap-3 transition-all shadow-lg hover:shadow-emerald-500/30 hover:scale-[1.02]"
+              className="w-full max-w-sm bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 rounded-xl flex justify-center items-center gap-3 transition-all shadow-lg hover:shadow-emerald-500/30 hover:scale-[1.02]"
             >
               <MessageSquare className="w-6 h-6" />
               <span className="text-lg">{t('booking.waConfirm')}</span>
-            </a>
-            <a
-              href="tel:01223901660"
-              className="bg-[#131313] border-2 border-[#f4bd70]/50 text-[#f4bd70] hover:bg-[#f4bd70]/10 font-bold py-4 rounded-xl flex justify-center items-center gap-3 transition-all hover:scale-[1.02]"
-            >
-              <Phone className="w-6 h-6" />
-              <span className="text-lg">{t('booking.callNow')}</span>
             </a>
           </div>
 
