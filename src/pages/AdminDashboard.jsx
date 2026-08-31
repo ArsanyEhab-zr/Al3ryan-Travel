@@ -7,6 +7,7 @@ import {
   useReviews,
   useLandmarks,
   useSettings,
+  useClientMoments,
 } from '../hooks/useSupabaseData'
 import {
   ShieldCheck,
@@ -42,12 +43,14 @@ export default function AdminDashboard() {
   const { reviews: unapprovedReviews, approveReview, deleteReview, refetch: refetchReviews } = useReviews(false)
   const { landmarks, addLandmark, updateLandmark, deleteLandmark } = useLandmarks()
   const { settings, updateSettings, updateCSNumber } = useSettings()
+  const { clientMoments, addClientMoment, deleteClientMoment } = useClientMoments()
 
   // Form States for Content Tab
   const [newCar, setNewCar] = useState({ name: '', max_passengers: 4, image_url: '' })
   const [editingCarId, setEditingCarId] = useState(null)
   const [newLandmark, setNewLandmark] = useState({ name: '', city: '', description: '', rating: 5.0, image_url: '' })
   const [editingLandmarkId, setEditingLandmarkId] = useState(null)
+  const [newClientMomentUrl, setNewClientMomentUrl] = useState('')
   const [settingsForm, setSettingsForm] = useState({
     address: 'شبرا مصر',
     hero_video_url: '',
@@ -161,6 +164,29 @@ export default function AdminDashboard() {
   const cancelEditLandmark = () => {
     setNewLandmark({ name: '', city: '', description: '', rating: 5.0, image_url: '' })
     setEditingLandmarkId(null)
+  }
+
+  const formatDriveUrl = (url) => {
+    try {
+      // Matches standard share links: /file/d/ID/view or /d/ID/edit
+      const match = url.match(/\/d\/(.*?)\//) || url.match(/[?&]id=([^&]+)/);
+      if (match && match[1]) {
+        return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+      }
+      return url; // fallback
+    } catch (e) {
+      return url;
+    }
+  };
+
+  const handleAddClientMoment = async (e) => {
+    e.preventDefault()
+    if (!newClientMomentUrl) return
+    const formattedUrl = formatDriveUrl(newClientMomentUrl)
+    const res = await addClientMoment(formattedUrl)
+    if (res.success) {
+      setNewClientMomentUrl('')
+    }
   }
 
   const handleSaveSettings = async (e) => {
@@ -312,6 +338,17 @@ export default function AdminDashboard() {
           >
             <Image className="w-4 h-4" />
             المعالم السياحية ({landmarks.length})
+          </button>
+
+          <button
+            onClick={() => setActiveTab('moments')}
+            className={`px-5 py-3 rounded-2xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'moments'
+                ? 'bg-[#f4bd70] text-[#131313] shadow-lg'
+                : 'liquid-glass text-[#d4c4b3] hover:text-[#f4bd70]'
+              }`}
+          >
+            <Image className="w-4 h-4" />
+            لحظات العملاء ({clientMoments?.length || 0})
           </button>
 
           <button
@@ -698,7 +735,54 @@ export default function AdminDashboard() {
           </div>
         )}
 
-        {/* TAB 5: SETTINGS */}
+        {/* TAB 5: CLIENT MOMENTS */}
+        {activeTab === 'moments' && (
+          <div className="space-y-8">
+            <div className="liquid-glass-strong rounded-2xl p-6 border border-[#f4bd70]/30">
+              <h3 className="font-bold text-base text-[#f4bd70] mb-4 flex items-center gap-2">
+                <Plus className="w-4 h-4" /> إضافة صورة جديدة للحظات العملاء
+              </h3>
+              <form onSubmit={handleAddClientMoment} className="flex gap-4 items-end">
+                <div className="flex-1">
+                  <label className="text-xs text-[#d4c4b3] block mb-1">رابط الصورة (Image URL)</label>
+                  <input
+                    type="url"
+                    value={newClientMomentUrl}
+                    onChange={(e) => setNewClientMomentUrl(e.target.value)}
+                    placeholder="أدخل رابط الصورة (مثال: Unsplash)"
+                    className="w-full bg-[#1c1b1b] border border-[#504538] rounded-xl px-3 py-2 text-xs text-[#e5e2e1]"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="bg-[#f4bd70] text-[#131313] font-bold py-2 px-6 rounded-xl text-xs hover:brightness-110 transition-all cursor-pointer h-[38px]"
+                >
+                  إضافة الصورة
+                </button>
+              </form>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+              {clientMoments.map((moment) => (
+                <div key={moment.id} className="liquid-glass rounded-2xl overflow-hidden relative group border border-[#504538]/40 h-48">
+                  <img src={moment.image_url} alt="Client Moment" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <button
+                      onClick={() => deleteClientMoment(moment.id)}
+                      className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-xl transition-colors cursor-pointer"
+                      title="حذف الصورة"
+                    >
+                      <Trash2 className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* TAB 6: SETTINGS */}
         {activeTab === 'settings' && (
           <div className="liquid-glass-strong rounded-2xl p-8 max-w-2xl border border-[#f4bd70]/30 space-y-6">
             <h3 className="font-bold text-lg text-[#f4bd70] flex items-center gap-2">

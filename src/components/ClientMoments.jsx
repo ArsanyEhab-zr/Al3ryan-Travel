@@ -1,26 +1,24 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useClientMoments } from '../hooks/useSupabaseData';
 
 export default function ClientMoments() {
   const { t } = useTranslation();
-
-  // High-quality placeholders representing luxury travel clients and handshakes
-  const images = [
-    "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
-  ];
+  const { clientMoments, loading } = useClientMoments();
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    if (clientMoments.length === 0) return;
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % clientMoments.length);
     }, 4000); // Change image every 4 seconds
     return () => clearInterval(timer);
-  }, [images.length]);
+  }, [clientMoments.length]);
+
+  if (!loading && clientMoments.length === 0) {
+    return null; // Gracefully handle empty state
+  }
 
   return (
     <section className="py-20 bg-[#0a0a0a] relative border-t border-white/5">
@@ -40,23 +38,23 @@ export default function ClientMoments() {
         {/* Carousel Container */}
         <div className="relative w-full h-[400px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl shadow-[#f4bd70]/5 border border-white/10 group">
           
-          {images.map((img, index) => (
+          {clientMoments.map((moment, index) => (
             <div
-              key={index}
+              key={moment.id}
               className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
                 index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
             >
               {/* 1. Ambient Blurred Background (Fills the empty space elegantly) */}
               <img
-                src={img}
+                src={moment.image_url}
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110"
               />
               
               {/* 2. Main Foreground Image (100% visible, never cropped) */}
               <img
-                src={img}
+                src={moment.image_url}
                 alt="Client Moment"
                 className="absolute inset-0 w-full h-full object-contain p-4 md:p-8 drop-shadow-2xl"
               />
@@ -68,9 +66,9 @@ export default function ClientMoments() {
 
           {/* Dots Navigation */}
           <div className="absolute bottom-6 left-0 right-0 z-30 flex justify-center gap-3">
-            {images.map((_, index) => (
+            {clientMoments.map((moment, index) => (
               <button
-                key={index}
+                key={moment.id}
                 onClick={() => setCurrentIndex(index)}
                 className={`transition-all duration-300 rounded-full ${
                   index === currentIndex 

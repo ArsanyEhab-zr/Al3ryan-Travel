@@ -294,3 +294,51 @@ export function useLandmarks() {
 
   return { landmarks, loading, refetch: fetchLandmarks, addLandmark, updateLandmark, deleteLandmark }
 }
+
+// 7. Client Moments Hook
+export function useClientMoments() {
+  const [clientMoments, setClientMoments] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const fetchClientMoments = useCallback(async () => {
+    try {
+      setLoading(true)
+      const { data, error } = await supabase
+        .from('client_moments')
+        .select('*')
+        .order('created_at', { ascending: false })
+      if (!error) setClientMoments(data || [])
+    } catch {
+      // Silently handle fetch failure
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    fetchClientMoments()
+  }, [fetchClientMoments])
+
+  const addClientMoment = async (imageUrl) => {
+    const { data, error } = await supabase
+      .from('client_moments')
+      .insert([{ image_url: imageUrl }])
+      .select()
+    if (!error && data) {
+      fetchClientMoments()
+      return { success: true, moment: data[0] }
+    }
+    return { success: false, error }
+  }
+
+  const deleteClientMoment = async (id) => {
+    const { error } = await supabase.from('client_moments').delete().eq('id', id)
+    if (!error) {
+      fetchClientMoments()
+      return { success: true }
+    }
+    return { success: false, error }
+  }
+
+  return { clientMoments, loading, refetch: fetchClientMoments, addClientMoment, deleteClientMoment }
+}
